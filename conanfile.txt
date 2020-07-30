@@ -1,0 +1,8 @@
+[requires]
+libpng/1.6.32@conan/stable
+gflags/2.2.2@bincrafters/stable
+glog/20181109@bincrafters/stable
+
+
+[generators]
+cmake
