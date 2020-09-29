@@ -2,7 +2,7 @@
 syntax = "proto3";
 
 // 这里定义package主要是为了防止命名冲突，在c++里边，会添加一个命名空间
-package zcy;
+package pkg;
 
 message helloworld {
   repeated int32 school_id = 1; // ID
