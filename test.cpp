@@ -296,9 +296,7 @@ void outputMap202() {
 
 int main(int argc, char **argv) {
     std::cout << "[Debug]" << std::endl;
-//    call_triangle();
-//    aplusplus_test();
-    outputMap202();
+    call_triangle();
 
     return 0;
 }
