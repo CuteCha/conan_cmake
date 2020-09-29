@@ -3,39 +3,39 @@
 
 #include "proto/test.pb.h"
 
-using namespace std;
-
-void ListMsg(const pkg::helloworld &msg) {
+void parse_msg(const pkg::helloworld &msg) {
     // 对于string变量的使用方法
-    cout << msg.student_name() << endl;
+    std::cout << "name: " << msg.student_name() << std::endl;
 
-    // 对于repeated int32变量的使用方法
-    for (int i = 0; i < msg.school_id_size(); ++i) {
-        cout << msg.school_id(i) << endl;
-    }
+//    // 对于repeated int32变量的使用方法
+//    for (int i = 0; i < msg.school_id_size(); ++i) {
+//        std::cout << msg.school_id(i) << std::endl;
+//    }
 
+    std::cout << "school_id: ";
     for (auto item : msg.school_id()) {
-        cout << item << endl;
+        std::cout << item << ", ";
     }
+    std::cout << std::endl;
 
     // 对于子message变量的使用方法
-    cout << msg.submess().name() << endl;
-    cout << msg.submess().age() << endl;
+    std::cout << msg.submess().name() << std::endl;
+    std::cout << msg.submess().age() << std::endl;
 
     // 对于枚举类变量的使用方法
-    cout << msg.day() << endl;
+    std::cout << msg.day() << std::endl;
 }
 
 int main(int argc, char *argv[]) {
     pkg::helloworld msg1;
 
     {
-        fstream input("./xxx_out", ios::in | ios::binary);
+        std::fstream input("./xxx_out", std::ios::in | std::ios::binary);
         if (!msg1.ParseFromIstream(&input)) {
-            cerr << "Failed to read data." << endl;
+            std::cerr << "Failed to read data." << std::endl;
             return -1;
         }
     }
 
-    ListMsg(msg1);
+    parse_msg(msg1);
 }

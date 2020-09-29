@@ -3,7 +3,6 @@
 
 #include "proto/test.pb.h"
 
-using namespace std;
 
 int main(void) {
     pkg::helloworld msg1;
@@ -27,13 +26,12 @@ int main(void) {
     ptr->set_name("james");
 
     // Write the new date back to disk.
-    fstream output("./xxx_out", ios::out | ios::trunc | ios::binary);
+    std::fstream output("./xxx_out", std::ios::out | std::ios::trunc | std::ios::binary);
 
     if (!msg1.SerializeToOstream(&output)) {
-        cerr << "Failed to write msg." << endl;
+        std::cerr << "Failed to write msg." << std::endl;
         return -1;
     }
-    cout << "done" << endl;
     std::cout << "done" << std::endl;
     return 0;
 }
