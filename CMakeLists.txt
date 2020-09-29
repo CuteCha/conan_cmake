@@ -13,6 +13,7 @@ endif()
 
 set(CMAKE_CXX_STANDARD 11)
 
+# -----------cmake proto--------------------
 find_package(Protobuf REQUIRED)
 INCLUDE_DIRECTORIES(${PROTOBUF_INCLUDE_DIR})
 
@@ -26,6 +27,7 @@ TARGET_LINK_LIBRARIES(write_data proto ${PROTOBUF_LIBRARIES})
 
 add_executable(read_data test_src/reader.cpp)
 TARGET_LINK_LIBRARIES(read_data proto ${PROTOBUF_LIBRARIES})
+# -----------cmake proto--------------------
 
 file(GLOB SRC_LIST "${PROJECT_SOURCE_DIR}/src/*.cpp")
 file(GLOB H_LIST "${PROJECT_SOURCE_DIR}/include/*.h")
