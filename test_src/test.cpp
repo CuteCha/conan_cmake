@@ -1,5 +1,5 @@
 #include <iostream>
-#include "include/Triangle.h"
+#include "../include/Triangle.h"
 #include "map"
 
 void call_triangle() {

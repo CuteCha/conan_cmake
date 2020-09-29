@@ -1,0 +1,21 @@
+// 这里是定义proto的版本
+syntax = "proto3";
+
+// 这里定义package主要是为了防止命名冲突，在c++里边，会添加一个命名空间
+package zcy;
+
+message helloworld {
+  repeated int32 school_id = 1; // ID
+  string student_name = 2;      // str
+  enum weekday {
+    monday = 0;
+    sunday = 2;
+  }
+  message submessage {
+    int32 age = 1;
+    string name = 2;
+  }
+
+  weekday day = 3;
+  submessage submess = 4;
+}
