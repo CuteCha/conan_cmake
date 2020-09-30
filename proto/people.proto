@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+package cxq_pkg;
+
+message animal{
+  string name = 1;
+  string color = 2;
+}
+
+message people {
+  int32 id = 1;
+  string name = 2;
+  repeated string favorite = 3;
+
+  enum weekday {
+    monday = 0;
+    sunday = 2;
+  }
+  message info {
+    int32 age = 1;
+    string address = 2;
+  }
+
+  weekday day = 4;
+  info msg = 5;
+  //  repeated animal pet = 3;
+  //  repeated people children = 7;
+}

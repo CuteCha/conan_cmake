@@ -3,6 +3,7 @@
 #include <google/protobuf/util/json_util.h>
 
 #include "proto/test.pb.h"
+#include "proto/people.pb.h"
 
 void print_msg(pkg::helloworld msg) {
     std::cout << "name: " << msg.student_name() << std::endl;
@@ -102,8 +103,61 @@ void pb2json2() {
 
 }
 
+void pb2json3() {
+    std::string json_string;
+
+    // Create a msg.
+    cxq_pkg::people person;
+    person.set_name("cxq");
+    person.set_id(19);
+    person.add_favorite("basketball");
+    person.add_favorite("fish");
+    person.set_day(cxq_pkg::people_weekday_sunday);
+    auto ptr = person.msg();
+    ptr.set_age(30);
+    ptr.set_address("bj");
+
+//    auto pet = person.pet(0);
+//    pet.set_name("dog");
+//    pet.set_color("yellow");
+//
+//    auto pet2 = person.pet(1);
+//    pet2.set_name("cat");
+//    pet2.set_color("dark");
+
+//    auto child=person.children(0);
+//    child.set_name("cxq");
+//    child.set_id(19);
+//    child.add_favorite("basketball");
+//    child.add_favorite("fish");
+//    child.set_day(cxq_pkg::people_weekday_sunday);
+//    auto ptrc = person.msg();
+//    ptrc.set_age(30);
+//    ptrc.set_address("bj");
+//
+//    auto petc = person.pet(0);
+//    petc.set_name("dog");
+//    petc.set_color("yellow");
+//
+//    auto petc2 = person.pet(1);
+//    petc2.set_name("cat");
+//    petc2.set_color("dark");
+
+
+    // Create a json_string from msg. [pb to json]
+    google::protobuf::util::JsonPrintOptions options;
+//    options.add_whitespace = true;
+    options.always_print_primitive_fields = true;
+    options.preserve_proto_field_names = true;
+    MessageToJsonString(person, &json_string, options);
+
+    // Print json_string.
+    std::cout << json_string << std::endl;
+
+}
+
 
 int main(int argc, char **argv) {
-    pb2json2();
+    pb2json3();
     return 0;
 }
