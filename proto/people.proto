@@ -23,6 +23,7 @@ message people {
 
   weekday day = 4;
   info msg = 5;
+  map<int32,string> data = 6;
   //  repeated animal pet = 3;
   //  repeated people children = 7;
 }

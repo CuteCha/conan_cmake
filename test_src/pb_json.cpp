@@ -156,6 +156,34 @@ void pb2json3() {
 
 }
 
+void pb2json4() {
+    std::string json_string;
+
+    // Create a msg.
+    cxq_pkg::people person;
+    person.set_name("cxq");
+    person.set_id(19);
+    person.add_favorite("basketball");
+    person.add_favorite("fish");
+    person.set_day(cxq_pkg::people_weekday_sunday);
+    auto ptr = person.msg();
+    ptr.set_age(30);
+    ptr.set_address("bj");
+    person.mutable_data()->insert({1,"std"});
+    person.mutable_data()->insert({2,"yml"});
+    //person.mutable_data()->insert({1,"std2"}); //重复key不能插入
+
+    // Create a json_string from msg. [pb to json]
+    google::protobuf::util::JsonPrintOptions options;
+    options.always_print_primitive_fields = true;
+    options.preserve_proto_field_names = true;
+    MessageToJsonString(person, &json_string, options);
+
+    // Print json_string.
+    std::cout << json_string << std::endl;
+
+}
+
 
 int main(int argc, char **argv) {
     pb2json3();
