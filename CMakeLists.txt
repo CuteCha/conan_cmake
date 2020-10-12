@@ -42,6 +42,7 @@ add_executable(conan_cmake main.cpp ${H_LIST} ${SRC_LIST})
 add_executable(test test_src/test.cpp ${H_LIST} ${SRC_LIST})
 
 add_executable(smart_ptr test_src/smart_ptr.cpp ${H_LIST} ${SRC_LIST})
+add_executable(multi_thread test_src/multi_thread.cpp ${H_LIST} ${SRC_LIST})
 
 add_library(test_lib SHARED ${SRC_LIST})
 
