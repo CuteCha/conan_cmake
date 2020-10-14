@@ -1,4 +1,6 @@
 #include <iostream>
+#include <unordered_set>
+#include <vector>
 #include "../include/Triangle.h"
 #include "map"
 
@@ -294,9 +296,40 @@ void outputMap202() {
     }
 }
 
+void SplitString(const std::string &s, std::vector<std::string> &v, const std::string &c) {
+    std::string::size_type pos1, pos2;
+    std::string::size_type c_size = c.size();
+    pos2 = s.find(c);
+    pos1 = 0;
+    while (std::string::npos != pos2) {
+        v.emplace_back(s.substr(pos1, pos2 - pos1));
+
+        pos1 = pos2 + c_size;
+        pos2 = s.find(c, pos1);
+    }
+    if (pos1 != s.length())
+        v.push_back(s.substr(pos1));
+}
+
+void test1() {
+    std::unordered_set<std::string> set;
+    std::vector<std::string> vec;
+    std::string s = "";//"english,french,german";
+    SplitString(s, vec, ",");
+    for (auto &item: vec) {
+        std::cout << item << std::endl;
+        set.insert(item);
+    }
+    std::cout << "---------------" << std::endl;
+    for (auto &item: set) {
+        std::cout << item << std::endl;
+    }
+
+}
+
 int main(int argc, char **argv) {
     std::cout << "[Debug]" << std::endl;
-    call_triangle();
+    test1();
 
     return 0;
 }
