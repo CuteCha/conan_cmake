@@ -1,5 +1,7 @@
 #include<iostream>
 #include<thread>
+#include <chrono>
+#include <queue>
 #include "../include/threadpool.h"
 
 
@@ -56,7 +58,15 @@ void test3() {
     std::cout << std::endl;
 }
 
+void test4(){
+    std::thread t([] {
+        std::cout << "Hello World from lambda thread." << std::endl;
+    });
+
+    t.join();
+}
+
 int main() {
-    test3();
+    test4();
     return 0;
 }
