@@ -59,5 +59,6 @@ int main(int argc, char **argv) {
     std::cout << FLAGS_big_menu << std::endl;
     std::cout << FLAGS_languages << std::endl;
     test_split();
+    google::ShutdownGoogleLogging();
     return 0;
 }
