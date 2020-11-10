@@ -41,6 +41,16 @@ add_executable(conan_cmake main.cpp ${H_LIST} ${SRC_LIST})
 
 add_executable(test test_src/test.cpp ${H_LIST} ${SRC_LIST})
 
+# -----------cmake yaml cpp--------------------
+add_executable(yaml_test test_src/yaml_test.cpp ${H_LIST} ${SRC_LIST})
+target_link_libraries(yaml_test PRIVATE yaml-cpp)
+set_property(TARGET yaml_test PROPERTY OUTPUT_NAME yaml_test_y)
+set_target_properties(yaml_test
+        PROPERTIES
+        CXX_STANDARD_REQUIRED ON
+        OUTPUT_NAME yaml_test_y)
+# -----------cmake yaml cpp--------------------
+
 add_executable(smart_ptr test_src/smart_ptr.cpp ${H_LIST} ${SRC_LIST})
 add_executable(multi_thread test_src/multi_thread.cpp ${H_LIST} ${SRC_LIST})
 
