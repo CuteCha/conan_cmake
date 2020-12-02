@@ -448,6 +448,172 @@ void outputMap303() {
     }
 }
 
+void outputMap203() {
+    std::map<std::string, int> map = {
+            {"exposure_uv_1d", 1},
+            {"exposure_uv_3d", 1},
+            {"exposure_uv_7d", 1},
+            {"exposure_uv_15d", 1},
+            {"exposure_uv_30d", 1},
+
+
+            {"watch_uv_1d", 1},
+            {"watch_uv_3d", 1},
+            {"watch_uv_7d", 1},
+            {"watch_uv_15d", 1},
+            {"watch_uv_30d", 1},
+
+
+
+            {"watch_time_1d", 1},
+            {"watch_time_3d", 1},
+            {"watch_time_7d", 1},
+            {"watch_time_15d", 1},
+            {"watch_time_30d", 1},
+
+            {"effective_watch_uv_1d", 1},
+            {"effective_watch_uv_3d", 1},
+            {"effective_watch_uv_7d", 1},
+            {"effective_watch_uv_15d", 1},
+            {"effective_watch_uv_30d", 1},
+
+            {"effective_watch_time_1d", 1},
+            {"effective_watch_time_3d", 1},
+            {"effective_watch_time_7d", 1},
+            {"effective_watch_time_15d", 1},
+            {"effective_watch_time_30d", 1},
+
+            {"heart_cnt_1d", 1},
+            {"heart_cnt_3d", 1},
+            {"heart_cnt_7d", 1},
+            {"heart_cnt_15d", 1},
+            {"heart_cnt_30d", 1},
+
+            {"heart_uv_1d", 1},
+            {"heart_uv_3d", 1},
+            {"heart_uv_7d", 1},
+            {"heart_uv_15d", 1},
+            {"heart_uv_30d", 1},
+
+            {"bullet_cnt_1d", 1},
+            {"bullet_cnt_3d", 1},
+            {"bullet_cnt_7d", 1},
+            {"bullet_cnt_15d", 1},
+            {"bullet_cnt_30d", 1},
+
+            {"bullet_uv_1d", 1},
+            {"bullet_uv_3d", 1},
+            {"bullet_uv_7d", 1},
+            {"bullet_uv_15d", 1},
+            {"bullet_uv_30d", 1},
+
+            {"msg_cnt_1d", 1},
+            {"msg_cnt_3d", 1},
+            {"msg_cnt_7d", 1},
+            {"msg_cnt_15d", 1},
+            {"msg_cnt_30d", 1},
+
+            {"msg_uv_1d", 1},
+            {"msg_uv_3d", 1},
+            {"msg_uv_7d", 1},
+            {"msg_uv_15d", 1},
+            {"msg_uv_30d", 1},
+
+            {"follow_uv_1d", 1},
+            {"follow_uv_3d", 1},
+            {"follow_uv_7d", 1},
+            {"follow_uv_15d", 1},
+            {"follow_uv_30d", 1},
+
+            {"share_cnt_1d", 1},
+            {"share_cnt_3d", 1},
+            {"share_cnt_7d", 1},
+            {"share_cnt_15d", 1},
+            {"share_cnt_30d", 1},
+
+            {"share_uv_1d", 1},
+            {"share_uv_3d", 1},
+            {"share_uv_7d", 1},
+            {"share_uv_15d", 1},
+            {"share_uv_30d", 1},
+
+            {"gift_total_1d", 1},
+            {"gift_total_3d", 1},
+            {"gift_total_7d", 1},
+            {"gift_total_15d", 1},
+            {"gift_total_30d", 1},
+
+            {"gift_uv_1d", 1},
+            {"gift_uv_3d", 1},
+            {"gift_uv_7d", 1},
+            {"gift_uv_15d", 1},
+            {"gift_uv_30d", 1},
+
+            {"click_rate_1d", 1},
+            {"click_rate_3d", 1},
+            {"click_rate_7d", 1},
+            {"click_rate_15d", 1},
+            {"click_rate_30d", 1},
+
+            {"avg_watch_time_1d", 1},
+            {"avg_watch_time_3d", 1},
+            {"avg_watch_time_7d", 1},
+            {"avg_watch_time_15d", 1},
+            {"avg_watch_time_30d", 1},
+
+            {"effective_watch_rate_1d", 1},
+            {"effective_watch_rate_3d", 1},
+            {"effective_watch_rate_7d", 1},
+            {"effective_watch_rate_15d", 1},
+            {"effective_watch_rate_30d", 1},
+
+            {"heart_rate_1d", 1},
+            {"heart_rate_3d", 1},
+            {"heart_rate_7d", 1},
+            {"heart_rate_15d", 1},
+            {"heart_rate_30d", 1},
+
+            {"bullet_rate_1d", 1},
+            {"bullet_rate_3d", 1},
+            {"bullet_rate_7d", 1},
+            {"bullet_rate_15d", 1},
+            {"bullet_rate_30d", 1},
+
+            {"msg_rate_1d", 1},
+            {"msg_rate_3d", 1},
+            {"msg_rate_7d", 1},
+            {"msg_rate_15d", 1},
+            {"msg_rate_30d", 1},
+
+            {"follow_rate_1d", 1},
+            {"follow_rate_3d", 1},
+            {"follow_rate_7d", 1},
+            {"follow_rate_15d", 1},
+            {"follow_rate_30d", 1},
+
+            {"share_rate_1d", 1},
+            {"share_rate_3d", 1},
+            {"share_rate_7d", 1},
+            {"share_rate_15d", 1},
+            {"share_rate_30d", 1},
+
+            {"gift_rate_1d", 1},
+            {"gift_rate_3d", 1},
+            {"gift_rate_7d", 1},
+            {"gift_rate_15d", 1},
+            {"gift_rate_30d", 1}
+    };
+
+
+    std::cout << "---------------map.size=" << map.size() << std::endl;
+
+    int i = 1;
+    for (auto &item: map) {
+        std::cout << i << ": k=" << item.first << ", v=" << item.second << std::endl;
+        i++;
+    }
+}
+
 void SplitString(const std::string &s, std::vector<std::string> &v, const std::string &c) {
     std::string::size_type pos1, pos2;
     std::string::size_type c_size = c.size();
@@ -481,7 +647,7 @@ void test1() {
 
 int main(int argc, char **argv) {
     std::cout << "[Debug]" << std::endl;
-    outputMap303();
+    outputMap203();
 
     return 0;
 }
