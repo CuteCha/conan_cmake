@@ -28,8 +28,13 @@ TARGET_LINK_LIBRARIES(write_data proto ${PROTOBUF_LIBRARIES})
 add_executable(read_data test_src/reader.cpp)
 TARGET_LINK_LIBRARIES(read_data proto ${PROTOBUF_LIBRARIES})
 
+#cmake pb2json
 add_executable(pb_json test_src/pb_json.cpp)
 TARGET_LINK_LIBRARIES(pb_json proto ${PROTOBUF_LIBRARIES})
+
+#cmake pb2conf
+add_executable(pb_config test_src/pb_config.cpp)
+TARGET_LINK_LIBRARIES(pb_config proto ${PROTOBUF_LIBRARIES})
 # -----------cmake proto--------------------
 
 file(GLOB SRC_LIST "${PROJECT_SOURCE_DIR}/src/*.cpp")
