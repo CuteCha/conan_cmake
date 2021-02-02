@@ -2,6 +2,7 @@
 #include <unordered_set>
 #include <vector>
 #include "../include/Triangle.h"
+#include "../include/Car.h"
 #include "map"
 
 void call_triangle() {
@@ -653,9 +654,17 @@ void test2() {
     }
 }
 
+void test3() {
+    Car *car1 = new Car(50.0, "bmw");
+    car1->display();
+    Car car2(*car1);
+    delete car1;
+    car2.display();
+}
+
 int main(int argc, char **argv) {
     std::cout << "[Debug]" << std::endl;
-    test2();
+    test3();
 
     return 0;
 }
