@@ -3,6 +3,7 @@
 #include <vector>
 #include "../include/Triangle.h"
 #include "../include/Car.h"
+#include "../include/AutoDiff.h"
 #include "map"
 
 void call_triangle() {
@@ -662,9 +663,33 @@ void test3() {
     car2.display();
 }
 
+void test4() {
+    using namespace AD;
+    static const double PI = 3.1415926;
+    std::vector<AutoDiff> x;
+
+    x.emplace_back(PI, 1);  // x = [PI, 2, 1]
+    x.emplace_back(2, 0);
+    x.emplace_back(1, 0);
+
+    AutoDiff y1 = cos(x[0]);
+    AutoDiff y2 = sin(x[0]);
+    AutoDiff y3 = x[1] * y1;
+    AutoDiff y4 = x[2] * y2;
+    AutoDiff y5 = x[1] * y2;
+    AutoDiff y6 = x[2] * y1;
+
+    AutoDiff z1 = y3 + y4;
+    AutoDiff z2 = y6 - y5;
+
+    std::cout << "x = [" << x[0].val << ", " << x[1].val << ", " << x[2].val << "]" << std::endl;
+    std::cout << "z = [" << z1.val << ", " << z2.val << "]" << std::endl;
+    std::cout << "[dz1/dx0, dz2/dx0] = [" << z1.d_val << "," << z2.d_val << "]" << std::endl;
+}
+
 int main(int argc, char **argv) {
     std::cout << "[Debug]" << std::endl;
-    test3();
+    test4();
 
     return 0;
 }
