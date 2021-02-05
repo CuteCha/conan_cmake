@@ -75,8 +75,17 @@ void test4() {
     std::cout << " number is " << *fsPtr3 << std::endl; //运行时中断
 }
 
+void test5() {
+    std::string s("hello world");
+    auto s_ptr = std::make_shared<std::string>(s);
+    //auto m_ptr = std::move(s_ptr);
+    std::cout << "address: " << s_ptr << "; value: " << *s_ptr << std::endl;
+    std::cout << s_ptr.use_count() << std::endl;
+    //std::cout << "address: " << m_ptr << "; value: " << *m_ptr << std::endl;
+}
+
 int main() {
-    test4();
+    test5();
 
     return 0;
 }
