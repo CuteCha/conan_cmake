@@ -21,7 +21,7 @@ Car::~Car() {
     std::cout << "Car::~Car()" << std::endl;
     if (m_name == NULL) return;
     delete[] m_name;
-    m_name == NULL;
+    m_name = NULL;
 }
 
 void Car::display() {
