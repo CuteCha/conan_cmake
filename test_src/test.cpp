@@ -1,6 +1,7 @@
 #include <iostream>
 #include <unordered_set>
 #include <vector>
+#include <sstream>
 #include "../include/Triangle.h"
 #include "../include/Car.h"
 #include "../include/AutoDiff.h"
@@ -687,9 +688,26 @@ void test4() {
     std::cout << "[dz1/dx0, dz2/dx0] = [" << z1.d_val << "," << z2.d_val << "]" << std::endl;
 }
 
+void test5() {
+    std::vector<int> vec;
+    vec.clear();
+    for (int i = 0; i < 5; i++) {
+        vec.emplace_back(i);
+    }
+    std::cout << vec.size() << std::endl;
+
+    std::ostringstream vts;
+    std::copy(vec.begin(), vec.end()-1,
+              std::ostream_iterator<int>(vts, ", "));
+    vts << vec.back();
+
+    std::cout << vts.str() << std::endl;
+
+}
+
 int main(int argc, char **argv) {
     std::cout << "[Debug]" << std::endl;
-    test4();
+    test5();
 
     return 0;
 }
