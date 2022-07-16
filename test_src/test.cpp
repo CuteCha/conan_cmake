@@ -697,8 +697,7 @@ void test5() {
     std::cout << vec.size() << std::endl;
 
     std::ostringstream vts;
-    std::copy(vec.begin(), vec.end()-1,
-              std::ostream_iterator<int>(vts, ", "));
+    std::copy(vec.begin(), vec.end() - 1, std::ostream_iterator<int>(vts, ", "));
     vts << vec.back();
 
     std::cout << vts.str() << std::endl;
