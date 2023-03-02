@@ -5,6 +5,7 @@
 #include "../include/Triangle.h"
 #include "../include/Car.h"
 #include "../include/AutoDiff.h"
+#include "../include/ListNode.h"
 #include "map"
 
 void call_triangle() {
@@ -704,9 +705,74 @@ void test5() {
 
 }
 
+ListNode *reverseKNode(ListNode *pre_main, ListNode *head, int k) {
+    ListNode *curr = head;
+    ListNode *pre = nullptr;
+    ListNode *next = nullptr;
+    while (k) {
+        k--;
+        next = curr->next;
+        curr->next = pre;
+        pre = curr;
+        curr = next;
+    }
+    head->next = curr;
+    pre_main->next = pre;
+    return head;
+
+}
+
+ListNode *reverseKGroup(ListNode *head, int k) {
+    int size = 0;
+    ListNode *dummyHead = new ListNode(-1, head);
+    ListNode *curr = head;
+
+    while (curr != nullptr) {
+        size++;
+        curr = curr->next;
+    }
+
+    curr = head;
+    int times = size / k;
+    ListNode *pre_main = dummyHead;
+    for (int i = 0; i < times; i++) {
+        ListNode *tmp = reverseKNode(pre_main, curr, k);
+        pre_main = tmp;
+        curr = pre_main->next;
+
+    }
+    return dummyHead->next;
+}
+
+void printListNode(ListNode *head) {
+    ListNode *tmp = head;
+    while (tmp) {
+        std::cout << tmp->val << ",";
+        tmp = tmp->next;
+    }
+    std::cout << std::endl;
+}
+
+
+void test6() {
+    ListNode *head = new ListNode(1);
+    ListNode *tmp = head;
+    for (int i = 2; i < 9; ++i) {
+        ListNode *t = new ListNode(i);
+        tmp->next = t;
+        tmp = t;
+    }
+    printListNode(head);
+    std::cout << "================" << std::endl;
+    ListNode *res = reverseKGroup(head, 3);
+    printListNode(res);
+
+
+}
+
 int main(int argc, char **argv) {
     std::cout << "[Debug]" << std::endl;
-    test5();
+    test6();
 
     return 0;
 }
