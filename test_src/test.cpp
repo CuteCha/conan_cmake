@@ -761,10 +761,10 @@ ListNode *reverseListNode(ListNode *head) {
 void printListNode(ListNode *head) {
     ListNode *tmp = head;
     while (tmp) {
-        std::cout << tmp->val << ",";
+        std::cout << tmp->val << "->";
         tmp = tmp->next;
     }
-    std::cout << std::endl;
+    std::cout << "null" << std::endl;
 }
 
 
