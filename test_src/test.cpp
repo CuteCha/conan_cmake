@@ -744,6 +744,20 @@ ListNode *reverseKGroup(ListNode *head, int k) {
     return dummyHead->next;
 }
 
+ListNode *reverseListNode(ListNode *head) {
+    ListNode *cur = head;
+    ListNode *pre = nullptr;
+
+    while (cur) {
+        ListNode *tmp = cur->next;
+        cur->next = pre;
+        pre = cur;
+        cur = tmp;
+    }
+
+    return pre;
+}
+
 void printListNode(ListNode *head) {
     ListNode *tmp = head;
     while (tmp) {
@@ -770,9 +784,25 @@ void test6() {
 
 }
 
+void test7() {
+    ListNode *head = new ListNode(1);
+    ListNode *tmp = head;
+    for (int i = 2; i < 9; ++i) {
+        ListNode *t = new ListNode(i);
+        tmp->next = t;
+        tmp = t;
+    }
+    printListNode(head);
+    std::cout << "================" << std::endl;
+    ListNode *res = reverseListNode(head);
+    printListNode(res);
+
+
+}
+
 int main(int argc, char **argv) {
     std::cout << "[Debug]" << std::endl;
-    test6();
+    test7();
 
     return 0;
 }
